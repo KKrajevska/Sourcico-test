@@ -8,6 +8,13 @@ export const parseIngredients = (ingredients: Ingredients): string => {
 };
 
 export const parseTime = (hours: string, minutes: string): string => {
+  if (minutes === "" && hours !== "") {
+    return `${hours}h 0m`;
+  }
+
+  if (hours === "" && minutes !== "") {
+    return `${minutes}m`;
+  }
   return `${hours}h ${minutes}m`;
 };
 

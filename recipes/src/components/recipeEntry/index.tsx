@@ -48,13 +48,14 @@ const RecipeEntry = () => {
     history.push("/recipes");
   };
 
-  const disabledButton =
-    recipeEntry.name === "" ||
-    (recipeEntry.preparationHours === "" &&
-      recipeEntry.preparationMinutes === "") ||
-    Object.entries(recipeEntry.ingredients).length === 0;
-
   const commaSeparatedIngredients = parseIngredients(recipeEntry.ingredients);
+
+  const disabledButton =
+    recipeEntry.name !== "" &&
+    (recipeEntry.preparationHours !== "" ||
+      recipeEntry.preparationMinutes !== "") &&
+    commaSeparatedIngredients !== "";
+
   return (
     <PureRecipeEntry
       onTextFieldChange={onTextFieldChange}

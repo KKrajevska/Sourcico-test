@@ -1,4 +1,5 @@
 import {
+  FormHelperText,
   IconButton,
   List,
   ListItem,
@@ -132,12 +133,18 @@ export const PureRecipeEntry = ({
           <List>{ingredients}</List>
         </ColumnWrapper>
       </Row>
+      <Row>
+        <FormHelperText>
+          *Must contain name, preparation time and at least one ingredient
+        </FormHelperText>
+      </Row>
+
       <ButtonFlexBox>
         <StlButton variant="contained">Cancel</StlButton>
         <StlButton
           color="primary"
           variant="contained"
-          disabled={disabledButton}
+          disabled={!disabledButton}
           onClick={onSave}
         >
           Add Recipe
