@@ -11,17 +11,21 @@ type NavigationBarProps = {
 export const PureNavigationBar = ({
   onMenuButtonClick,
 }: NavigationBarProps) => {
-  const buttons = Routes.map((route, idx) => (
-    <Button
-      key={idx}
-      name={route.path}
-      startIcon={<route.icon />}
-      color="inherit"
-      onClick={() => onMenuButtonClick(route.path)}
-    >
-      {route.name}
-    </Button>
-  ));
+  const buttons = Routes.map((route, idx) => {
+    return (
+      route.name && (
+        <Button
+          key={idx}
+          name={route.path}
+          startIcon={<route.icon />}
+          color="inherit"
+          onClick={() => onMenuButtonClick(route.path)}
+        >
+          {route.name}
+        </Button>
+      )
+    );
+  });
   return (
     <>
       <AppBar position="fixed">

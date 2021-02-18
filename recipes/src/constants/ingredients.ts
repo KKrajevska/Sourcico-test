@@ -10,4 +10,4 @@ export const INGREDIENTS = [
   "Cheese",
   "Potatoes",
   "Meat",
-];
+] as const;

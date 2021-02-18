@@ -1,6 +1,7 @@
 import { AddCircleOutline, Fastfood } from "@material-ui/icons";
 import AddRecipe from "../containers/addRecipe/AddRecipe";
 import Recipes from "../containers/recipes/Recipes";
+import SingleRecipe from "../containers/singleRecipe/SingleRecipe";
 
 const Routes = [
   {
@@ -8,12 +9,10 @@ const Routes = [
     component: Recipes,
     name: "Recipes",
     icon: Fastfood,
-    routes: [
-      {
-        path: ":recipeId",
-        component: () => "Not found",
-      },
-    ],
+  },
+  {
+    path: "recipe/:recipeId",
+    component: SingleRecipe,
   },
   {
     path: "add",
